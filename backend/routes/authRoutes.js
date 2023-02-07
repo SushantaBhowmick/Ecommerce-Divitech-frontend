@@ -8,9 +8,10 @@ const {
     updateUser, 
     blockUser,
     unblockUser,
-    handleRefreshToken
+    handleRefreshToken,
+    logout
 } = require('../controllers/userCtrl');
-const { authMiddleware, isAdmin } = require('../models/authMiddlewares');
+const { authMiddleware, isAdmin } = require('../middlewares/authMiddlewares');
 const router = express.Router();
 
 router.route('/register').post(createUser);
@@ -22,5 +23,6 @@ router.route('/delete/:id').delete(deleteUser);
 router.route('/update').put(authMiddleware,updateUser);
 router.route('/block-user/:id').put(authMiddleware,isAdmin, blockUser);
 router.route('/unblock-user/:id').put(authMiddleware,isAdmin,unblockUser);
+router.route('/logout').get(logout);
 
 module.exports=router;
