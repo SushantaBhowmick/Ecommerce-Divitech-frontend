@@ -10,6 +10,7 @@ const { errHandler, notfound } = require('./middlewares/errHandler');
 const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
 const productRoutes =require('./routes/productRoutes');
+const blogRoutes =require('./routes/blogRoutes');
 const morgan = require('morgan')
 
 mongoose.set('strictQuery', false);
@@ -29,6 +30,7 @@ app.get('/',(req,res)=>{
 //routes
 app.use('/api/v1',productRoutes);
 app.use('/api/v1',authRoutes);
+app.use('/api/v1',blogRoutes);
 
 
 //err handler
