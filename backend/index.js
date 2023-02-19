@@ -11,9 +11,15 @@ const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
 const productRoutes =require('./routes/productRoutes');
 const blogRoutes =require('./routes/blogRoutes');
+const categoryRoutes =require('./routes/prodCategoryRoutes');
+const blogCategoryRoutes =require('./routes/blogCategoryRoutes');
+const brandRoutes =require('./routes/brandRoutes');
 const morgan = require('morgan')
+require('events').EventEmitter.prototype._maxListeners = 100
 
 mongoose.set('strictQuery', false);
+// app.use(emitter.setMaxListeners());
+// process.setMaxListeners(0)
 dbConnect();
 
 //middlewares
@@ -28,9 +34,12 @@ app.get('/',(req,res)=>{
     res.send("hi its works ?");
 })
 //routes
-app.use('/api/v1',productRoutes);
-app.use('/api/v1',authRoutes);
-app.use('/api/v1',blogRoutes);
+app.use('/api/v1/product',productRoutes);
+app.use('/api/v1/user',authRoutes);
+app.use('/api/v1/blog',blogRoutes);
+app.use('/api/v1/category',categoryRoutes);
+app.use('/api/v1/blogcategory',blogCategoryRoutes);
+app.use('/api/v1/brand',brandRoutes);
 
 
 //err handler
@@ -43,3 +52,6 @@ app.use(errHandler);
 app.listen(PORT,()=>{
     console.log(`Server is running at PORT ${PORT}`)
 })
+
+//05.45.00 
+//hh.mm.ss

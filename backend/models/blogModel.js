@@ -14,14 +14,14 @@ const blogSchema = new mongoose.Schema({
         required: true,
     },
     numOfViews: {
-        type: String,
+        type: Number,
         default:0
     },
     isLiked: {
         type: Boolean,
         default: false,
     },
-    isDisLiked: {
+    isDisliked: {
         type: Boolean,
         default: false
     },
