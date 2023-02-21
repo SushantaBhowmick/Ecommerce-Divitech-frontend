@@ -14,6 +14,7 @@ const blogRoutes =require('./routes/blogRoutes');
 const categoryRoutes =require('./routes/prodCategoryRoutes');
 const blogCategoryRoutes =require('./routes/blogCategoryRoutes');
 const brandRoutes =require('./routes/brandRoutes');
+const couponRoutes =require('./routes/couponRoutes');
 const morgan = require('morgan')
 require('events').EventEmitter.prototype._maxListeners = 100
 
@@ -40,6 +41,7 @@ app.use('/api/v1/blog',blogRoutes);
 app.use('/api/v1/category',categoryRoutes);
 app.use('/api/v1/blogcategory',blogCategoryRoutes);
 app.use('/api/v1/brand',brandRoutes);
+app.use('/api/v1/coupon',couponRoutes);
 
 
 //err handler
@@ -53,5 +55,4 @@ app.listen(PORT,()=>{
     console.log(`Server is running at PORT ${PORT}`)
 })
 
-//05.45.00 
-//hh.mm.ss
+
