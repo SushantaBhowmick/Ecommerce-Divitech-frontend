@@ -459,4 +459,34 @@ res.json({
     
 })
 
+exports.getOrders = asyncHandler(async(req,res)=>{
+    const { _id } = req.user;
+    validateMongoId(_id);
+    try {
+        const userOrder = await Order.findOne({orderby: _id}).populate('products.product').exec();
+        res.json(userOrder);
+    } catch (error) {
+        throw new Error(error)
+    }
+})
+
+exports.updateOrderStatus = asyncHandler(async(req,res)=>{
+    const {status} = req.body;
+    const {id} = req.params;
+   try {
+    validateMongoId(id)
+    const updateOrderStatus = await Order.findByIdAndUpdate(id,{
+        orderStatus: status,
+        paymentIntent:{
+            status:status,
+        }
+    },{
+        new:true,
+    })
+    res.json(updateOrderStatus)
+   } catch (error) {
+        throw new Error(error)
+   }
+})
+
 //const getorder pending //8.36.05
