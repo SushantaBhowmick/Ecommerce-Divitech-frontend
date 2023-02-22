@@ -374,5 +374,14 @@ exports.getUserCart =asyncHandler(async(req,res)=>{
     }
 })
 
-//08.02.40
-//hh.mm.ss
+exports.emptyCart = asyncHandler(async(req,res)=>{
+    const { _id} = req.user;
+    validateMongoId(_id);
+    try {
+        const user = await User.findOne({ _id });
+        const cart = await Cart.findOneAndRemove({orderby: user._id})
+        res.json(cart);
+    } catch (error) {
+        throw new Error(error)
+    }
+})
