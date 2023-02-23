@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const slugify = require("slugify");
 const User = require('../models/userModel');
 const { validateMongoId } = require("../utils/validateMongodbId");
-const { cloudinaryUploadingImg } = require("../utils/cloudinary");
+const { cloudinaryUploadingImg, cloudinaryDeleteImg } = require("../utils/cloudinary");
 const fs = require('fs');
 
 exports.createProduct = asyncHandler(async (req, res) => {
@@ -192,8 +192,6 @@ exports.rating = asyncHandler(async (req, res) => {
 // })
 
 exports.uploadImages = asyncHandler(async (req, res) => {
-    const {id} = req.params;
-    validateMongoId(id);
 
     try {
         
@@ -207,13 +205,27 @@ exports.uploadImages = asyncHandler(async (req, res) => {
             fs.unlinkSync(path);
 
         }
-      
-        const findProduct = await Product.findByIdAndUpdate(id,{
-            images: urls.map((file)=>{
-                return file;
-            }),
-        });
-        res.json(findProduct);
+      const images=  urls.map((file)=>{
+        return file;
+    });
+res.json(images)
+   
+    } catch (error) {
+        throw new Error(error)
+    }
+})
+
+exports.deleteImages = asyncHandler(async (req, res) => {
+    const {id} = req.params;
+   if(!id) throw new Error("invalid credential");
+    try {
+        
+        const deleted =  cloudinaryDeleteImg(id, "images");
+       res.json({
+        message:"Deleted"
+       })
+     
+   
     } catch (error) {
         throw new Error(error)
     }
