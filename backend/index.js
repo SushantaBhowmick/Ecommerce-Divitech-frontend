@@ -16,6 +16,7 @@ const blogCategoryRoutes =require('./routes/blogCategoryRoutes');
 const brandRoutes =require('./routes/brandRoutes');
 const colorRoutes =require('./routes/colorRoutes');
 const couponRoutes =require('./routes/couponRoutes');
+const enqRoutes =require('./routes/enqRoutes');
 const morgan = require('morgan')
 require('events').EventEmitter.prototype._maxListeners = 100
 
@@ -44,6 +45,7 @@ app.use('/api/v1/blogcategory',blogCategoryRoutes);
 app.use('/api/v1/brand',brandRoutes);
 app.use('/api/v1/coupon',couponRoutes);
 app.use('/api/v1/color',colorRoutes);
+app.use('/api/v1/enq',enqRoutes);
 
 
 //err handler
