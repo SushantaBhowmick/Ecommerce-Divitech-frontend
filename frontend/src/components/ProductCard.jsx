@@ -2,14 +2,14 @@ import React from 'react';
 import ReactStarts from "react-rating-stars-component";
 import { Link, useLocation } from 'react-router-dom';
 
-const ProductCart = (props) => {
+const ProductCard = (props) => {
     let location = useLocation();
    const {grid} = props;
   return (
  
    <>
    <div className={`${location.pathname === "/store" ? `gr-${grid}` : "col-3"}`} >
-    <Link className="product-card position-relative">
+    <Link to={"/product/:id"} className="product-card position-relative">
         <div className="wishlist-icon position-absolute">
             <Link><img src="images/wish.svg" alt="wishlists" /></Link>
         </div>
@@ -108,4 +108,4 @@ const ProductCart = (props) => {
   )
 }
 
-export default ProductCart
+export default ProductCard
