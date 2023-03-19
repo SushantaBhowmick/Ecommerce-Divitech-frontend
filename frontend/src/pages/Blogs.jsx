@@ -46,7 +46,6 @@ const Blogs = () => {
         </div>
       </div>
   
-    <div>Blogs</div>
     </>
   )
 }
