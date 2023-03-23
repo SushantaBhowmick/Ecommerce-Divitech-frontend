@@ -9,9 +9,11 @@ import ReactImageZoom from 'react-image-zoom';
 const SingleProduct = () => {
     const props = {
         width: 400,
-        height: 250, 
+        height: 500, 
         zoomWidth: 500, 
-        img: "https://itechstore.co.in/wp-content/uploads/2021/06/Watch-SE2.jpg"};
+        // img: "https://itechstore.co.in/wp-content/uploads/2021/06/Watch-SE2.jpg"
+        img:"https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
+    };
 
     const [orderedProduct, setOrderedProduct] = useState(true);
 
@@ -28,8 +30,50 @@ const SingleProduct = () => {
                                 <ReactImageZoom {...props} />
                                 </div>
                             </div>
+                            <div className="other-product-images d-flex  gap-15">
+                                <div><img src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg" className='img-fluid' alt="" /></div>
+                                <div><img src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg" className='img-fluid' alt="" /></div>
+                                <div><img src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg" className='img-fluid' alt="" /></div>
+                                <div><img src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg" className='img-fluid' alt="" /></div>
+                            </div>
                         </div>
-                        <div className="col-6"></div>
+                        <div className="col-6">
+                            <div className="main-products-details">
+                                <div className='border-bottom'>
+                                    <h3 className='title'>Kids Headphone Bulk 10 Pack Multi Colored For Students</h3>
+                                </div>
+                                <div className="border-bottom py-3">
+                                    <p className="price">
+                                        $ 100.00
+                                    </p>
+                                    <div className="d-flex align-items-center gap-10">
+                                    <ReactStarts
+                                                count={5}
+                                                size={24}
+                                                value={4}
+                                                edit={false}
+                                                activeColor="#ffd700"
+                                            />
+                                            <p className='mb-0'>{ "2 Reviews"}</p>
+                                    </div>
+                                    <a className='review-btn' href="#review">Write a Review</a>
+                                </div>
+                                <div className="border-bottom">
+                                    <div className='d-flex align-items-center'>
+                                        <h3>ABC:</h3> <p className=''>GFd</p>
+                                    </div>
+                                    <div className='d-flex align-items-center'>
+                                        <h3>ABC:</h3> <p className=''>GFd</p>
+                                    </div>
+                                    <div className='d-flex align-items-center'>
+                                        <h3>ABC:</h3> <p className=''>GFd</p>
+                                    </div>
+                                    <div className='d-flex align-items-center'>
+                                        <h3>ABC:</h3> <p className=''>GFd</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -54,7 +98,7 @@ const SingleProduct = () => {
             <section className="reviews-wrapper home-wrapper-2">
                 <div className="container-xxl">
                     <div className="row">
-                        <h3>Reviews</h3>
+                        <h3  id='review'>Reviews</h3>
                         <div className="col-12">
                             <div className="review-inner-wrapper"  style={{"borderRadius":"10px"}}>
                                 <div className="review-head d-flex justify-content-between align-items-end">
@@ -80,7 +124,7 @@ const SingleProduct = () => {
                                     }
 
                                 </div>
-                                <div className="review-form py-4">
+                                <div  className="review-form py-4">
                                     <h4>Write a Review</h4>
                                     <form action="" className='d-flex flex-column gap-15'>
                                         <div>
