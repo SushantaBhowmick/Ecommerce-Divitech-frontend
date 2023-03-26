@@ -8,6 +8,8 @@ import Color from "../components/Color"
 import { Link } from 'react-router-dom';
 import {TbGitCompare} from "react-icons/tb"
 import {AiOutlineHeart} from "react-icons/ai"
+import {FaShippingFast} from "react-icons/fa"
+
 
 
 const SingleProduct = () => {
@@ -20,6 +22,16 @@ const SingleProduct = () => {
     };
 
     const [orderedProduct, setOrderedProduct] = useState(true);
+    const copyToClipboard = (text) => {
+        console.log('text', text)
+        var textField = document.createElement('textarea')
+        textField.innerText = text
+        document.body.appendChild(textField)
+        textField.select()
+        document.execCommand('copy')
+        textField.remove()
+      }
+      
 
     return (
         <>
@@ -78,7 +90,7 @@ const SingleProduct = () => {
                                     </div>
                                     <a className='review-btn' href="#review">Write a Review</a>
                                 </div>
-                                <div className="border-bottom">
+                                <div className="border-bottom py-3">
                                     <div className='d-flex align-items-center my-2 gap-10'>
                                         <h3 className='product-heading'>Type : </h3> 
                                         <p className='product-data '>Watch</p>
@@ -141,6 +153,21 @@ const SingleProduct = () => {
                                                 <AiOutlineHeart className='fs-5  me-2' />                                                <a href="">Add to Wishlist</a>
                                             </div>
                                         </div>
+                                        <div className='d-flex flex-column my-3 gap-10'>
+                                        <h3 className='product-heading'> <FaShippingFast/> Shipping & Returns : </h3> 
+                                        <p className='product-data '>Free shipping and returns on
+                                         all orders! <br /> We shipping all Us domestic within 
+                                         <b> 5-10 business days!</b>
+                                         </p>
+                                    </div>
+                                        <div className='d-flex align-items-center my-3 gap-10'>
+                                        <h3 className='product-heading'>Copy Product Link : </h3> 
+                                        <a 
+                                        href="javascript:void(0);" 
+                                        onClick={()=>copyToClipboard("https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg")}>
+                                            Copy Product Link
+                                        </a>
+                                    </div>
                                 </div>
 
                             </div>
@@ -266,4 +293,4 @@ const SingleProduct = () => {
 
 export default SingleProduct
 
-//7.22.00s
+//8.00.00s

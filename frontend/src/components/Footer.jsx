@@ -7,6 +7,7 @@ import {
   BsGithub,
   BsYoutube
 } from 'react-icons/bs'
+import newsletter from '../images/newsletter.png'
 
 
 const Footer = () => {
@@ -17,7 +18,7 @@ const Footer = () => {
           <div className="row align-items-center">
             <div className="col-5">
               <div className="footer-top-data d-flex gap-30 align-items-center">
-                <img src="images/newsletter.png" alt="News-Letter" />
+                <img src={newsletter} alt="News-Letter" />
                 <h2 className="mb-0 text-white">Sign Up for Newsletter</h2>
               </div>
             </div>
