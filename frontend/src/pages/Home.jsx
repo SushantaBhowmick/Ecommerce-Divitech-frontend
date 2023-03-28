@@ -62,11 +62,9 @@ const Home = () => {
             </div>
           </div>
     </Container>
-      
 
-      <section className="home-wrapper-2 py-5">
-        <div className="container-xxl">
-          <div className="row">
+    <Container class1='home-wrapper-2 py-5'>
+    <div className="row">
             <div className="col-12">
               <div className="services d-flex align-items-center justify-content-between">
                 <div className='d-flex align-items-center gap-15'>
@@ -107,8 +105,8 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+      </Container>  
+
 
       <section className="home-wrapper-2 py-5">
         <div className="container-xxl">
@@ -342,4 +340,4 @@ const Home = () => {
 
 export default Home
 
-//3.32.40
+//9.10.00
